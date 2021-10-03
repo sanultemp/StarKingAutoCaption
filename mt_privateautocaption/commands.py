@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (C) PR0FESSOR-99
+# (C) StarKing
 
 import os
 from config import Config
@@ -12,16 +12,18 @@ USERNAME=Config.BOT_USERNAME
 
 # start_Msg, help_msg, about_msg
 # Team Mo Tect
-MT = "@Mo_Tech_YT"
+MT = "@StarKingBots"
 
 
 @Client.on_message(filters.private & filters.command("start"))
 async def start_meg(client, update):
     text = f"""<b> 👋Hello {update.from_user.mention}\n\nI am an AutoCaption bot\n\nAll you have to do is add me to your channel and I will show you my power\n\nFor more info check help Button\n\n {MT}</b>"""
     reply_markup =  InlineKeyboardMarkup( [[
-        InlineKeyboardButton("help↗️", callback_data="heroku"),
-        InlineKeyboardButton("🗣️Group", url="t.me/mo_tech_Group"),
-        InlineKeyboardButton("Channel📢", url="t.me/mo_tech_yt")
+        InlineKeyboardButton("help🆘", callback_data="heroku")
+        InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK"),
+        InlineKeyboardButton("Channel📢", url="https://https://t.me/StarKingBots"),
+        ],[
+        InlineKeyboardButton("✒ Current Caption", callback_data="currentcaption")
         ]]
     )
     await update.reply_text(
@@ -37,36 +39,52 @@ async def callback_data(client, update: CallbackQuery):
 
     if query_data == "heroku":
         buttons = [[
-            InlineKeyboardButton("🖥️ Tutorial Video 🖥️", url="https://youtu.be/p4Z9ZN1lZUk")
+            InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/PSALK")
             ],[
             InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
             InlineKeyboardButton("❌️Close", callback_data="motech"),
             InlineKeyboardButton("About↗️", callback_data="about")
             ]]
-    
+
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await update.message.edit_text(
-            f"""<b>🔻AutoCaption Bot🔻\n\nTake a look at the end of the video\nIt has to say\n\n🖥️Youtube Tutorial Video\n\nHeroku 👉 https://dashboard.heroku.com/\n\n {MT}</b>""",
+            f"""<b>🔻AutoCaption Bot🔻\n\nIf you want to change your Caption,\nChange it from Heroku.\n\nHeroku 👉 https://dashboard.heroku.com\n\n🎥Join to Our PSA LK channel for get latest PSA Rips./\n\n {MT}</b>""",
             reply_markup=reply_markup,
             parse_mode="html"
         )
 
+    if query_data == "currentcaption":
+        buttons = [[
+            InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/PSALK")
+            ],[
+            InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
+            InlineKeyboardButton("❌️Close", callback_data="motech"),
+            InlineKeyboardButton("About↗️", callback_data="about")
+            ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        await update.message.edit_text(
+            f"""<u>Current Caption</u>\n\n{CAPTION_TEXT}""",
+            reply_markup=reply_markup,
+            parse_mode="markdown"
+        )        
+
     if query_data == "about":
         buttons = [[
-            InlineKeyboardButton("🗣️Group", url="t.me/mo_tech_Group"),
-            InlineKeyboardButton("Channel📢", url="t.me/mo_tech_yt"),
-            InlineKeyboardButton("📃Bot List", url="https://t.me/Mo_Tech_YT/176")
+            InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/StarKingBots"),
+            InlineKeyboardButton("Channel📢", url="https://t.me/StarKingBots"),
             ],[
             InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
             InlineKeyboardButton("🔙Back", callback_data="heroku"),
             InlineKeyboardButton("❌️Close", callback_data="motech")
             ]]
-    
+
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await update.message.edit_text(
-            """<b>➪ Bot Name</b> AutoCaptionBot\n\n➪ <b>Framework : Pyrogram</b>\n\n➪<b> Language : Python</b>\n\n➪<b> Server : Heroku</b> \n\n<b>➪ Version : 2.0.1</b>\n\n<b>➪ Source Code  : <a href="https://github.com/PR0FESS0R-99/PrivateAutoCaption">Touch Me 🤗</a>\n\n➪ Developer :  @PR0FESS0R_99\n\n➪ Credits : <a href="https://github.com/PR0FESS0R-99/PrivateAutoCaption/blob/main/mt_privateautocaption/Credits.md">Credits</a></b>""",
+            """<b>➪ Bot Name: StarKing AutoCaptionBot</b>\n\n➪ <b>Framework : Pyrogram</b>\n\n➪<b> Language : Python</b>\n\n➪<b> Server : StarKing Cloud</b> \n\n<b>➪ Version : 1.5.0</b>\n\n<b>➪ Developer :  @MrTonyStarKing</b>""",
             reply_markup=reply_markup,
             parse_mode="html"
         )
