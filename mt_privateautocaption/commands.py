@@ -64,10 +64,11 @@ async def callback_data(client, update: CallbackQuery):
 
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        await update.message.edit_text(
+        await update.reply_text(
             f"""<u><b>Current Caption</b></u>\n\n<code>{CAPTION}</code>\n\n@PSALKSERIES\n\n**Note:** Current Caption is not stable. I'm trying to give custom caption mode in next update.♥""",
-            reply_markup=reply_markup,
-            parse_mode="html"
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
         )
 
     if query_data == "about":
