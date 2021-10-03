@@ -65,7 +65,7 @@ async def callback_data(client, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await update.message.edit_text(
-            f"""<u><b>Current Caption</b></u>\n\n<code>{file_name}</code>\n\n@PSALKSERIES\n\n**Note:** Current Caption is not stable. I'm trying to give custom caption mode in next update.♥""",
+            f"""<u><b>Current Caption</b></u>\n\n<code>{CAPTION_TEXT}</code>\n\n@PSALKSERIES\n\n**Note:** Current Caption is not stable. I'm trying to give custom caption mode in next update.♥""",
             reply_markup=reply_markup,
             parse_mode="html"
         )
