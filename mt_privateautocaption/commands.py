@@ -19,8 +19,10 @@ MT = "@StarKingBots"
 async def start_meg(client, update):
     text = f"""<b> 👋Hello {update.from_user.mention}\n\nI am an AutoCaption bot\n\nAll you have to do is add me to your channel and I will show you my power\n\nFor more info check help Button\n\n {MT}</b>"""
     reply_markup =  InlineKeyboardMarkup( [[
-        InlineKeyboardButton("help🆘", callback_data="heroku"),
+        InlineKeyboardButton("help🆘", callback_data="heroku")
         InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK"),
+        ],[
+        InlineKeyboardButton("✒ Current Caption", callback_data="currentcaption")
         ]]
     )
     await update.reply_text(
@@ -29,7 +31,7 @@ async def start_meg(client, update):
         reply_markup=reply_markup
   )
 
-@Client.on_callback_query(filters.regex(r"^(heroku|about|motech)$"))
+@Client.on_callback_query(filters.regex(r"^(heroku|about|motech|currentcaption)$"))
 async def callback_data(client, update: CallbackQuery):
 
     query_data = update.data
@@ -47,6 +49,23 @@ async def callback_data(client, update: CallbackQuery):
 
         await update.message.edit_text(
             f"""<b>🔻AutoCaption Bot🔻\n\nIf you want to change your Caption,\nChange it from Heroku.\n\nHeroku 👉 https://dashboard.heroku.com\n\n🎥Join to Our PSA LK channel for get latest PSA Rips./\n\n {MT}</b>""",
+            reply_markup=reply_markup,
+            parse_mode="html"
+        )
+
+    if query_data == "currentcaption":
+        buttons = [[
+            InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/PSALK")
+            ],[
+            InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
+            InlineKeyboardButton("❌️Close", callback_data="motech"),
+            InlineKeyboardButton("About↗️", callback_data="about")
+            ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        await update.message.edit_text(
+            f"""<u><b>Current Caption</b></u>\n\n<code>{file_name}</code>\n\n@PSALKSERIES\n\n**Note:** Current Caption is not stable. I'm trying to give custom caption mode in next update.♥""",
             reply_markup=reply_markup,
             parse_mode="html"
         )
