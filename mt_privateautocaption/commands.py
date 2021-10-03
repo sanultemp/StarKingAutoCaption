@@ -65,11 +65,9 @@ async def callback_data(client, update: CallbackQuery):
 
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        await update.message.edit_text(
-            """<u>Current Caption</u>\n\n{CAPTION_TEXT}""",
-            reply_markup=reply_markup,
-            parse_mode="html"
-        )        
+        await update.message.edit_text("""f"**--Your Caption--:**\n\n{CAPTION_TEXT}""", quote=True)
+
+# others         
 
     if query_data == "about":
         buttons = [[
