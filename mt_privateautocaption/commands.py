@@ -68,7 +68,7 @@ async def callback_data(client, update: CallbackQuery):
         await update.message.edit_text(
             """<u>Current Caption</u>\n\n{CAPTION_TEXT}""",
             reply_markup=reply_markup,
-            parse_mode="markdown"
+            parse_mode="html"
         )        
 
     if query_data == "about":
