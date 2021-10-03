@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) StarKing
+# (c) Shrimadhav U K & PR0FESS0R-99
 
 import os
 from config import Config
@@ -16,7 +16,7 @@ URL_LINK=Config.URL_LINK
 @Client.on_message(filters.media & filters.channel)
 async def caption(client, message: Message):
     kopp, _ = get_file_id(message)
-    await message.edit(f"<b>{kopp.file_name}</b>\n\n<b>{kopp.file_size}</b>\n\n{CAPTION_TEXT}",
+    await message.edit(f"<b>{kopp.file_name}</b>\n\n{CAPTION_TEXT}",
           reply_markup=InlineKeyboardMarkup(
               [[
               InlineKeyboardButton(f"{BUTTON_TEXT}", url=f"{URL_LINK}")
