@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (C) PR0FESSOR-99
+# (C) StarKing
 
 import os
 from config import Config
