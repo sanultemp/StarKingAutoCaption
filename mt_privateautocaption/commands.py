@@ -21,9 +21,6 @@ async def start_meg(client, update):
     reply_markup =  InlineKeyboardMarkup( [[
         InlineKeyboardButton("help🆘", callback_data="heroku"),
         InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK"),
-        InlineKeyboardButton("Channel📢", url="https://t.me/StarKingBots"),
-        ],[
-        InlineKeyboardButton("✒ Current Caption", callback_data="currentcaption")
         ]]
     )
     await update.reply_text(
@@ -32,7 +29,7 @@ async def start_meg(client, update):
         reply_markup=reply_markup
   )
 
-@Client.on_callback_query(filters.regex(r"^(heroku|about|motech|currentcaption)$"))
+@Client.on_callback_query(filters.regex(r"^(heroku|about|motech)$"))
 async def callback_data(client, update: CallbackQuery):
 
     query_data = update.data
@@ -54,26 +51,9 @@ async def callback_data(client, update: CallbackQuery):
             parse_mode="html"
         )
 
-    if query_data == "currentcaption":
-        buttons = [[
-            InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/PSALK")
-            ],[
-            InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
-            InlineKeyboardButton("❌️Close", callback_data="motech"),
-            InlineKeyboardButton("About↗️", callback_data="about")
-            ]]
-
-        reply_markup = InlineKeyboardMarkup(buttons)
-
-        await update.message.edit_text(
-            """<u>Current Caption</u>\n\n{CAPTION}""",
-            reply_markup=reply_markup,
-        )        
-
     if query_data == "about":
         buttons = [[
             InlineKeyboardButton("🎥 PSA LK 🎥", url="https://t.me/StarKingBots"),
-            InlineKeyboardButton("Channel📢", url="https://t.me/StarKingBots"),
             ],[
             InlineKeyboardButton("🏠Home", url=f"https://t.me/{USERNAME}?start=start"),
             InlineKeyboardButton("🔙Back", callback_data="heroku"),
