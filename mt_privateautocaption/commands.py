@@ -19,8 +19,8 @@ MT = "@StarKingBots"
 async def start_meg(client, update):
     text = f"""<b> 👋Hello {update.from_user.mention}\n\nI am an AutoCaption bot\n\nAll you have to do is add me to your channel and I will show you my power\n\nFor more info check help Button\n\n {MT}</b>"""
     reply_markup =  InlineKeyboardMarkup( [[
-        InlineKeyboardButton("help🆘", callback_data="heroku")
-        InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK"),
+        InlineKeyboardButton("help🆘", callback_data="heroku"),
+        InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK")
         ],[
         InlineKeyboardButton("✒ Current Caption", callback_data="currentcaption")
         ]]
