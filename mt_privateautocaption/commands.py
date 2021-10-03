@@ -17,7 +17,7 @@ MT = "@StarKingBots"
 
 @Client.on_message(filters.private & filters.command("start"))
 async def start_meg(client, update):
-    text = f"""<b> 👋Hello {update.from_user.mention}\n\nI am starking AutoCaption bot\n\nAll you have to do is add me to your channel and I will show you my power\n\nFor more info check help Button\n\n {MT}</b>"""
+    text = f"""<b> 👋Hello {update.from_user.mention}\n\nI am an AutoCaption bot\n\nAll you have to do is add me to your channel and I will show you my power\n\nFor more info check help Button\n\n {MT}</b>"""
     reply_markup =  InlineKeyboardMarkup( [[
         InlineKeyboardButton("help🆘", callback_data="heroku"),
         InlineKeyboardButton("PSA Movies🎥", url="https://t.me/PSALK"),
@@ -32,7 +32,7 @@ async def start_meg(client, update):
         reply_markup=reply_markup
   )
 
-@Client.on_callback_query(filters.regex(r"^(heroku|about|motech)$"))
+@Client.on_callback_query(filters.regex(r"^(heroku|about|motech|currentcaption)$"))
 async def callback_data(client, update: CallbackQuery):
 
     query_data = update.data
