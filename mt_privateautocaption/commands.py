@@ -13,7 +13,7 @@ USERNAME=Config.BOT_USERNAME
 # start_Msg, help_msg, about_msg
 # Team Mo Tect
 MT = "@StarKingBots"
-CP = "file_name"
+CP = "{file_name}"
 
 
 @Client.on_message(filters.private & filters.command("start"))
