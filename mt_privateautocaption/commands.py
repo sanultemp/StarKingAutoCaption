@@ -13,6 +13,7 @@ USERNAME=Config.BOT_USERNAME
 # start_Msg, help_msg, about_msg
 # Team Mo Tect
 MT = "@StarKingBots"
+CP = "file_name"
 
 
 @Client.on_message(filters.private & filters.command("start"))
@@ -65,7 +66,7 @@ async def callback_data(client, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
 
         await update.message.edit_text(
-            f"""<b><u>🔻Current Caption</u>🔻\n\nName: <code>{file_name}</code>\n\n@PSALKSERIES\n\n'Current Caption' is not stable.😅 I'll give you, **Custom Caption** mode in next update.♥\n\n🎥Join to Our PSA LK channel for get latest PSA Rips.\n\n {MT}</b>""",
+            f"""<b><u>🔻Current Caption</u>🔻\n\nName: <code>{CP}</code>\n\n@PSALKSERIES\n\n'Current Caption' is not stable.😅 I'll give you, **Custom Caption** mode in next update.♥\n\n🎥Join to Our PSA LK channel for get latest PSA Rips.\n\n {MT}</b>""",
             reply_markup=reply_markup,
             parse_mode="markdown"
         )
